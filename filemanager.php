@@ -126,6 +126,11 @@ $footer = '<a href="http://github.com/mustafa0x/pafm">pafm v'.VERSION.'</a> '
  */
 $_R_HEADERS = array('js' => 'text/javascript', 'css' => 'text/css', 'png' => 'image/png', 'gif' => 'image/gif');
 $_R = array();
+
+
+
+$_R['images/ajax.gif'] = 'data:image/gif;base64,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';
+
 $_R['js'] = 'function $(a){return document.getElementById(a)}var popup,fOp,edit,upload,shell,__AJAX_ACTIVE,__CODEMIRROR,__CODEMIRROR_MODE,__CODEMIRROR_LOADED,__CODEMIRROR_PATH="_cm",__CODEMIRROR_MODES={html:"htmlmixed",js:"javascript",py:"python",rb:"ruby",md:"markdown"};function ajax(b,g,e,c,a,d){__AJAX_ACTIVE=true;if(!a){json2markup(["div",{attributes:{id:"ajaxOverlay"}},"img",{attributes:{src:"'.$_R['images/ajax.gif'].'",id:"ajaxImg",title:"Loading",alt:"Loading"}}],document.body);$("ajaxOverlay").style.height=document.body.offsetHeight+"px";fade($("ajaxOverlay"),0,6,25,"in")}var f=window.ActiveXObject?new ActiveXObject("MSXML2.XMLHTTP.3.0"):new XMLHttpRequest();d&&f.upload.addEventListener("progress",d,false);f.open(g,b,true);f.onreadystatechange=function(){if(f.readyState!=4){return}__AJAX_ACTIVE=false;a||fade($("ajaxOverlay"),6,0,25,"out",function(){document.body.removeChild($("ajaxOverlay"));document.body.removeChild($("ajaxImg"))});if(f.status==200||f.statusText=="OK"){if(f.responseText=="Please refresh the page and login"){alert(f.responseText)}else{c(f.responseText)}}else{alert("AJAX request unsuccessful.\nStatus Code: "+f.status+"\nStatus Text: "+f.statusText+"\nParameters: "+b)}f=null};if(g.toLowerCase()=="post"&&!a){f.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8")}f.send(e)}function json2markup(c,g){var b=0,a=c.length,d,f,e;for(;b<a;b++){if(c[b].constructor==Array){json2markup(c[b],d)}else{if(c[b].constructor==Object){if(c[b].attributes){for(f in c[b].attributes){switch(f.toLowerCase()){case"class":d.className=c[b].attributes[f];break;case"style":d.style.cssText=c[b].attributes[f];break;case"for":d.htmlFor=c[b].attributes[f];break;default:d.setAttribute(f,c[b].attributes[f])}}}if(c[b].events){for(e in c[b].events){d.addEventListener(e,c[b].events[e],false)}}if(c[b].preText){g.appendChild(document.createTextNode(c[b].preText))}if(c[b].text){d.appendChild(document.createTextNode(c[b].text))}switch(c[b].insert){case"before":g.parentNode.insertBefore(d,g);break;case"after":g.parentNode.insertBefore(d,g.nextSibling);break;case"under":default:g.appendChild(d)}if(c[b].postText){g.appendChild(document.createTextNode(c[b].postText))}}else{d=document.createElement(c[b])}}}}function fade(e,f,g,c,h,i){var d=e.style.opacity!=undefined,b,a;e.style[d?"opacity":"filter"]=d?f/10:"alpha(opacity="+f*10+")";a=setInterval(function(){if(h=="in"){f++;b=f<=g}else{if(h=="out"){f--;b=f>=g}}if(b){e.style[d?"opacity":"filter"]=d?f/10:"alpha(opacity="+f*10+")"}else{clearInterval(a);if(i){i()}}},c)}popup={init:function(d,a){json2markup(["div",{attributes:{id:"popOverlay"},events:{click:popup.close}}],document.body);json2markup(["div",{attributes:{id:"popup"}},["div",{attributes:{id:"head"}},["a",{attributes:{id:"x",href:"#"},events:{click:function(f){popup.close();f.preventDefault?f.preventDefault():f.returnValue=false}},text:"[x]"},"span",{text:d}],"div",{attributes:{id:"body"}}]],document.body);var e=$("popup"),c=$("popOverlay"),b;json2markup(a,$("body"));if(b=$("moveListUL")){if(b.offsetHeight>(document.body.offsetHeight-150)){b.style.height=document.body.offsetHeight-150+"px"}}e.style.marginTop="-"+parseInt(e.offsetHeight)/2+"px";e.style.marginLeft="-"+parseInt(e.offsetWidth)/2+"px";fade(c,0,6,25,"in");document.onkeydown=function(f){if((f||window.event).keyCode==27){popup.close();return false}}},close:function(){if(__AJAX_ACTIVE){return}if($("popup")){var a=$("popOverlay");fade(a,6,0,25,"out",function(){document.body.removeChild(a)});document.body.removeChild($("popup"))}document.onkeydown=null}};fOp={rename:function(a,b){popup.init("Rename:",["form",{attributes:{action:"?do=rename&subject="+a+"&path="+b+"&nonce="+nonce,method:"post"}},["input",{attributes:{title:"Rename To",type:"text",name:"rename",value:a}},"input",{attributes:{title:"Ok",type:"submit",value:"\u2713"}}]])},create:function(a,b){popup.init("Create "+a+":",["form",{attributes:{method:"post",action:"?do=create&path="+b+"&f_type="+a+"&nonce="+nonce}},["input",{attributes:{title:"Filename",type:"text",name:"f_name"}},"input",{attributes:{title:"Ok",type:"submit",value:"\u2713"}}]])},chmod:function(c,b,a){popup.init("Chmod "+unescape(b)+":",["form",{attributes:{method:"post",action:"?do=chmod&subject="+b+"&path="+c+"&nonce="+nonce}},["input",{attributes:{title:"chmod",type:"text",name:"mod",value:a}},"input",{attributes:{title:"Ok",type:"submit",value:"\u2713"}}]])},copy:function(a,b){popup.init("Copy "+unescape(a)+":",["form",{attributes:{method:"post",action:"?do=copy&subject="+a+"&path="+b+"&nonce="+nonce}},["input",{attributes:{title:"copy to",type:"text",name:"to",value:"copy-"+a}},"input",{attributes:{title:"Ok",type:"submit",value:"\u2713"}}]])},moveList:function(a,b,c){ajax(("?do=moveList&subject="+a+"&path="+b+"&to="+c),"get",null,function(d){if(!$("popup")){popup.init("Move "+unescape(a)+" to:",Function("return "+d)())}else{var f=$("popup"),e;$("body").innerHTML="";json2markup(Function("return "+d)(),$("body"));if((e=$("moveListUL")).offsetHeight>(document.body.offsetHeight-150)){e.style.height=document.body.offsetHeight-150+"px"}f.style.marginTop="-"+parseInt(f.offsetHeight)/2+"px";f.style.marginLeft="-"+parseInt(f.offsetWidth)/2+"px"}})},remoteCopy:function(a){popup.init("Remote Copy:",["form",{attributes:{method:"post",action:"?do=remoteCopy&path="+a+"&nonce="+nonce,id:"remote-copy"}},["legend",{text:"Location: "},["br",{},"input",{attributes:{title:"Remote Copy",type:"text",name:"location"},events:{change:function(b){$("remoteCopyName").value=this.value.substring(this.value.lastIndexOf("/")+1)}}}],"legend",{text:"Name: "},["br",{},"input",{attributes:{id:"remoteCopyName",title:"Name",type:"text",name:"to"}}],"input",{attributes:{title:"Ok",type:"submit",value:"\u2713"}}]])}};edit={init:function(b,c,d,a){__CODEMIRROR_MODE=d;json2markup(["div",{attributes:{id:"editOverlay"}}],document.body);$("editOverlay").style.height="100%";json2markup(["div",{attributes:{id:"ea"}},["textarea",{attributes:{id:"ta",rows:"30",cols:"90"},events:{change:function(){window.__FILECHANGED=true}}},"br",{},"input",{attributes:{type:"text",value:unescape(b),readonly:""}},"input",{attributes:{type:"button",value:"CodeMirror"},events:{click:function(){if(a){edit.codeMirrorLoad()}else{if(confirm("Install CodeMirror?")){ajax("?do=installCodeMirror","get",null,function(e){if(e==""){edit.codeMirrorLoad()}else{alert("Install failed. Manually upload CodeMirrorand place it in _codemirror, in the same directory as pafm")}})}}this.disabled=true}}},"input",{attributes:{type:"button",value:"Save",id:"save"},events:{click:function(){edit.save(b,c)}}},"input",{attributes:{type:"button",value:"Exit",id:"exit"},events:{click:function(){edit.exit(b,c)}}},"span",{attributes:{id:"editMsg"}}]],document.body);document.onkeydown=function(f){if((f||window.event).keyCode==27){edit.exit(b,c);return false}};ajax("?do=readFile&path="+c+"&subject="+b,"get",null,function(e){$("ta").value=e});location="#header"},codeMirrorLoad:function(){if(!__CODEMIRROR_LOADED){json2markup(["script",{attributes:{src:__CODEMIRROR_PATH+"/cm.js",type:"text/javascript"},events:{load:function(){__CODEMIRROR_LOADED=true;edit.codeMirrorLoad()}}},"link",{attributes:{rel:"stylesheet",href:__CODEMIRROR_PATH+"/cm.css"}},],document.getElementsByTagName("head")[0])}else{var a=__CODEMIRROR_MODES[__CODEMIRROR_MODE]||__CODEMIRROR_MODE;__CODEMIRROR=CodeMirror.fromTextArea($("ta"),{onChange:function(){window.__FILECHANGED=true},lineNumbers:true});__CODEMIRROR.setOption("mode",a)}},save:function(b,c){__CODEMIRROR&&__CODEMIRROR.save();$("editMsg").innerHTML=null;var a="data="+encodeURIComponent($("ta").value);ajax("?do=saveEdit&subject="+b+"&path="+c+"&nonce="+nonce,"post",a,function(d){$("editMsg").className=d.indexOf("saved")==-1?"failed":"succeeded";$("editMsg").innerHTML=d});window.__FILESAVED=true;window.__FILECHANGED=false},exit:function(a,b){if(window.__FILECHANGED&&!confirm("Leave without saving?")){return}if(window.__FILESAVED){ajax("?do=getfs&path="+b+"&subject="+a,"get",null,function(e){var g=$("dirList").getElementsByTagName("li"),d=unescape(a),f=0,c=g.length;for(;f<c;f++){if(g[f].title==d){g[f].getElementsByTagName("span")[0].innerHTML=e;break}}})}__CODEMIRROR=null;document.body.removeChild($("ea"));document.body.removeChild($("editOverlay"));window.__FILESAVED=null;document.onkeydown=null}};shell={init:function(b,a){popup.init("Shell:",["textarea",{attributes:{id:"shell-history"},text:""},"form",{attributes:{id:"shell",action:"?do=shell&nonce="+nonce,method:"post"},events:{submit:shell.submit}},["input",{attributes:{type:"text",name:"cmd",id:"cmd","data-bash":"["+b+" "+a+"]"}},"input",{attributes:{title:"Ok",type:"submit",value:"\u2713"}}]])},submit:function(a){a.preventDefault();$("shell-history").innerHTML+=$("cmd").getAttribute("data-bash")+"> "+$("cmd").value;ajax($("shell").getAttribute("action"),"POST","cmd="+encodeURIComponent($("cmd").value),function(b){$("shell-history").innerHTML+="\n"+b;$("shell-history").scrollTop=$("shell-history").scrollHeight});$("cmd").value="";return false}};upload={init:function(b,a){popup.init("Upload:",["form",{attributes:{id:"upload",action:"?do=upload&path="+b,method:"post",enctype:"multipart/form-data",encoding:"multipart/form-data"}},["input",{attributes:{type:"hidden",name:"MAX_FILE_SIZE",value:a}},"input",{attributes:{type:"file",id:"file_input",name:"file"},events:{change:function(c){upload.chk(c.target.files[0].name,b)}}}],"div",{attributes:{id:"upload-drag"},events:{dragover:function(c){this.className="upload-dragover";c.preventDefault()},dragleave:function(){this.className=""},drop:function(c){c.preventDefault();upload.chk(c.dataTransfer.files[0].name,b,c.dataTransfer.files[0])},},text:"drag here"},"div",{attributes:{id:"response"},text:"php.ini upload limit: "+Math.floor(a/1048576)+" MB"}])},chk:function(a,d,b){var c=new FormData();c.append("file",b||$("file_input").files[0]);ajax("?do=fileExists&path="+d+"&subject="+a,"GET",null,function(e){if(e=="1"){json2markup(["input",{insert:"after",attributes:{type:"button",value:"Replace?"},events:{click:function(f){upload.submit(d,c)}}}],$("file_input"))}else{upload.submit(d,c)}})},submit:function(b,a){ajax("?do=upload&path="+b+"&nonce="+nonce,"POST",a,function(c){$("response").innerHTML=c;location.reload(true)},true,function(d){if(d.lengthComputable){var c=Math.round((d.loaded*100)/d.total);$("response").innerHTML="uploaded: "+c+"%"}})}};';
 $_R['images/copy.png'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAW0lEQVR42mNkgIKGhob/DEQCoFpGGJsR2YD6+nqCmhsbG+lgAEgRsQCnAcS6hvYGYPMOstxIcwG6odR3ATZ/YtOEDBixKcKXrGGugyVpsgyAqmHE6wJ8fkfOTACWlX8HDBsg/gAAAABJRU5ErkJggg==';
 $_R['images/cp.png'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABZUlEQVR4nKWTsYoaURhGz+hoJdqmFIvgiGyVZ4i1xbZbJ7W1jxBIlyyCJLAvYLVvYSVYGBCrweY6w8w49473zr/FblgtVk32g6/8DufncuGd8QCCIOgBX4E7oHlho4CfwLflcqkA6Pf797PZTLbbrex2u7MNw1Cm06kEQfADoNrtdj8PBoPvw+EQay1aa4wxb1ZE6HQ6LBaLT9baRx/42Gq1SNP0n26v1WqIyAdfRCp5npNl2dXjPM9JkgQRqfgAWmuSJAFgPp+fHfd6PeI4pigKAHyA/X5PHMcAjEajs4DJZMLhcKAsy1dAFEWEYYjv+xf1/5o6514BxhiUUhfH8Hw/cGrgnENrDcB4PL4KdGJwDLg2xwaltRZjzP8BnHPz42e5JiJClmWUZfmnqpQKG41GR2t943keRVGgtX6zaZqyXq+Jomi6Wq1+eS/QZrvd/lKv1289zzv7G0VEGWN+bzabByB9AqD9D+RrBi73AAAAAElFTkSuQmCC';
@@ -139,7 +144,6 @@ $_R['images/remotecopy.png'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB
 $_R['images/terminal.png'] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAC7klEQVRIx+2VPYudVRSFn33e917RFANBIT/BykIEnUIhWjiM06gohFsEtLQZGAUHTGHnT1AJWIjBYFplEknAwgS1EBJ/gcFiTKJBZyYz7zl7L4tzPzP3JlNo52neD/Zee+21Pw78x8cA1tbWPmxSOmGWLCUr9xtJANEkS01IQrLqqgmM0Uz77O7eu33p24vvtU8/9eTx5WefOTMYvGlmBkCTGjAbxq9AhqHxlzCDCIGCUBDuFC9E1PcbN37xO7/f/KgtEU1EWO4O+PjTzzl27LHKydKQPrNkmfo2URMSiqjgCt54bZXu4F5z96+dR9uuy0lUg19v/sbtO3c5LJGOJrjgoNvn9VdXiRC5lCY1TcLMxgSvXN7i3Y31o4GLSQYSGqIoAncn59KmnN0kgcHO7h6bm2dYXV3hyuUtNjbWWVpaWgyMFmQrcs50XRepeGmNicY//PgTL760wvubH/DK6goXvjp3CEBUxhFBhBPh+OjpTozqBtaW4kkCKQB4+63TDAanAPj6my3On78wAXMnFFRTjdOZziN3XbX3QKAWkRhquLuzx2BwirNnP+OLc19WHbtuYQEWVkeBmWFgbUSYqqgIOHnyZUoUvHjV04xrV7+b8X9u+fl5ZQEgEBHCwwHU2rinDXenlDLbORLLyy8s5H2oy4bg4YEkS2AhwIuTc/fAtnwo+Ph/jIha27TJI+qYL8x7Lsj8YCOJJBBqWlR3is8LMBVhmv00+DyJFDH2TbUFHS/lyOzvW7MzLhFR27TOG60kiwhyKTxI/XlxtUCyCAEBBq2ZhXut+vo7pxGQUiKZAQlLRpMaupwnk6wgvGYeGjJ2R4hkCUO4BwqlttdrS85Ze3t79sTjxxm1bWoSWMIMjERKdSmO7oERcL0PhBcfzphzkDsO9vfrHGzf+uPPq9e+/+T69Z9PKALDCETCRvukbluJ/iN9er2W4W4kIuj3ezPliAiaptH29q2/cynboyurP15P/94R0PH/edj5B6OaN3c/ZGf5AAAAAElFTkSuQmCC';
 $_R['images/addfile.gif'] = 'data:image/gif;base64,R0lGODlhGAAYAOZkAPPz8+Hh4fz8/Ozs7Orq6u3t7ebl5v7+/u7u7vLy8vDw8Pj4+IXDLfb29qLYNInVD+Tk5NbW1pnbIPv7+7jpOdLS0m2yJqfgN5rcINzc3HzPANLR0uDg4JzDd+Pj5KXMeLjfe93d3ZTXKrjgf7Paetra2tbV137QAtXU1efn5+Li4qjQf7TmQ6zUf5vbLonVEKDHd6TMf4/VJ7TmQsLtTpnbIcvLy5e+ds3NzdfX19DyWeXk5OXk5dzb3KrjNOPj47zkf7Tcf4/VKJTYKtva29nY2dfW16rReaDHf73kfNPT07vqRsjwVpvaLc/zWsLtT+Hg4Z7Ff9XT1bDYf97e39jY2NnZ2ZO6ddn3Y6/Wetr3Y4rVD97d3sDof9vb2+np6fr6+tXV1fT09P///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAGQALAAAAAAYABgAAAf/gGSCg4SFhoeIiYc8Bo2OjlICioI7Y5aXlxkRkooemJ89AUoTij9jB6ipqEQBARWkiCpjArS1tEWtATiwhgFjYMDBwCYQxRA2vIQcv8LBXBUVGxsoUIddFNhJC9vcuQEpHIdAWExaIA3o6QDrAGNUhyM6S04kYvb3+GMhhEEO/jQ+nvhzkIWdwTEZCE1hIQFDwxoSJMw4kqCixQRjvBBqceGBR48vtlz4oKCkSQVjShBawaBlkxMuWjKAgaCmTQRjrByKMUSDiA4FggodOqbKISQyNAi5MaCp06djchyKYqHqFQJYs2odY+RQmDFfwoodK3ZMBK9j8KnNd9ZQmLdwC+PKDdN2kt27dwMBADs=';
 $_R['images/addfolder.gif'] = 'data:image/gif;base64,R0lGODlhGAAYAOZ/APr6+vj4+P/1xfPZqe3Rn+rOma/hN57VM//rjP/khfTbq+/TobXmOafbNuS2TozTJ5TOMYPTCYDALP/daf/+9v/tnPLy8vHdt//icPf39+3t7//pkqjOe7Xdf//kiJ69UZHYGHzPAMHpf7vpR//ffZHXGKHeMv/olP/pheLi4v/Zcvber4rHLm+zJ+/v7//qiv38/dz4ZcPtT6LfKne5Kf/52+aoMvz8/aHdM+jLl/7gff7+/uvr7OnMl7TmPv39/f/VZvb29u/Vo5HYF/7eev/ZaujKlf/88P/qmv/rn//smfXhu6HdNPfesP/30//41OXl5v/yu7vpRv/kdf/igP/mgP/tov/skf39/v/ecf/wsrPmPv/77f/ljPz8+//UXOvPnOzPnPPkyfXcrfXdrv/BQPbcrf/MU//2xOjo6ezs7v38/P/uqfDVpP/2zPLXpv/ojP/1x9zc3Nra3P/0vf/ZYv/vo//TW//wp+anMf/PVP/BP//KTf/FR////////yH5BAEAAH8ALAAAAAAYABgAAAf/gH+Cg4SFhoeIgyKLIoYuPBqRkho8LoMMMTEMhmp+np+fPIMGMjIGhjxYN14/N2swMDtzHbQNPlsNtB0AgmleGcDBGUEAByNSIzMzxyMHKYJQARbT1NQQJSDY2SBDEHKCKUsX4+TkLCZMOBERJiY4LN9/KxT09fYc+BIhIRL4HE2CyHARQKegwYN0aOyjQQfNkRWCxtTAQ7GiRYotHjxoQbGGGUEKntgZSbLkyA8oP4x0okDQADcVYsqcqeQKghcoULxAEGeAoDcCNggdugFOlSkYkipNquWNICFRPEiVSiXLhKtYs05g00bQAi0kwhIpUqes2bNmrSwQRICNChVFVb7cmUu3bl0kBASBSQLkjp6/gAML1nMijKACJ87wWcy4sePFXQoIypGgj+XLmDNfTtBDkBEie0KLHk06dBkdRgSJcWAjj+vXsGPnseFATKLbuHMfCgQAOw==';
-$_R['images/ajax.gif'] = 'data:image/gif;base64,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';
 $_R['images/chmod.gif'] = 'data:image/gif;base64,R0lGODlhEAAQAOYAAP+7POLi4v3KYv/GSv/KS//Tjc3Nzf/YeNLS0v/dqf/Ni9ra2sjIyebm5uKxS9a3hMHBwfbVlf/Xd//bqP/Zp//fffbXl//XhP/TgvPz8+Hh4ebl5uvq6P7+/vr6+u7u7vDw8O3t7ezs7PLy8unp6fb29susefj4+Pn5+eTk5NnZ2dbW1uDg4OvVrNjY2Pz8/Ojo6OXl5eTj5PX19ff3976+vtfX1+Tk5fv7+/nPdMexi/3jje/Zr9vb3uvr7cSth+DCjdCjTty+iuvOmsPDw/bWlN7d3ry8vevr6/+0LP/GasXFxf779v/NSMXFyr+/w9mtVbS0tPPz9f+/Pf/Zk/+6Mf+wNbmje/jUgtnMtPrUhKenqdSlQ96tRMaYQdm6hvbWjuTGke7QgefKlPfJW9TU1P/UV9TU1sGib+/v8dGxf9bX1s+5kP/cevbVlru7u9nX2fHMddS+mNG6kf+8VP+vLNnY2f/DQf/FQP/HRN3c3N/f39XV1fT09P///////yH5BAEAAH8ALAAAAAAQABAAAAeogH+Cg4SFhHYbiYlwSIaCMX6RkSksjn8yHZmZATA2DYYuASwNLy8aDRorhQFSDEdnSyciLggIBoREUTEzRwwxJyEaGmWDTD9sPC0tOll9zn16g0NxERFuFmAOGdsZC4NhOQUKCkoAXSDoICqDQFgXGOUDUB/0Hy6DXwIEA3d5ZkEiAopYM+iBmDYHJLTZ4YWDQw6qCK1A8axiHz6FIPDZyJEjBEsg/wQCADs=';
 $_R['images/move.gif'] = 'data:image/gif;base64,R0lGODlhEAAQANU/AD+0OnvbSEG2OrW2tk7BO0y/O0S5O+7u8rGxsVHDPPr7+/z8/Pb2+Pj4+vX197GysbKxsj6yOvP687Kysr29vfn5+b72du3t8MbFxZriZonbbJTmW0/BPFvPMVDCPEfFJ4vgULj7Zfz/k4jcXMnJyZrrh0i8O+jo7Ui8PE2/PJvqfcr6hLGxsqPmgrGysnbhOrKxsbm5ucLBwpjjeJnpWszNzc/Pz4bcbWLQS/Dw8/Ly9fT09v39/dHR0f///////yH5BAEAAD8ALAAAAAAQABAAAAaLwJ9wSCwOe8hksmLs+Z5QH7JRdB6uh9wpWfXlvuCLtKsrm3WJXtHm27nfu0SiWPM57oUUgcApeRRDJD4MhCY4NxozLSocEkIYPg2SBh8BGzQgAS8pQjI+CqACHSMZKxYhKI4/FD4LrgCwAgIiBoBCMT48urs8sEUDUVERA0UsDzATLhAICMsPRtBGQQA7';
 $_R['images/movehere.gif'] = 'data:image/gif;base64,R0lGODlhEAAQANU/APn5+VHDPE7BOz+0OnvbSLm6uUK3O7W2tky/O0S5O/39/fT09u7u8vz8/PX197Gxsc/Pz/b2+Pr6+7GysbKxsvj4+kC2Ovz/k+ry60i8O0i8PO3t8LGyspTmW+/v83bhOpriZojcZ4vgUPDz8rj7ZcnJybKxsejo7Zrrh6Pmgr6+vc/P0F/QPk2/PJvqffb595jjeO718LGxssr6hEHIE772drKysszNzMHCwsbFxZnpWvLy9fDw89HR0f///////yH5BAEAAD8ALAAAAAAQABAAAAaMwJ9wSCwOe70VctkDGHu+qNSHrBShjCzDc1pefbyweEP9BnbodJkI8QUCi3jcBxkiWoI8KjBy+H03QxosISEwKS4CGBERPiVDCTQEHToiBB8tFRU+OUMWhCAzNSQaMRISPjhDA6wWBhcJLw2zPipFBT6sCru7PgVFB7lTUgdFMhMmNhwUDw/ME0bRRkEAOw==';
@@ -207,53 +211,24 @@ if ($do) {
 	}
 
 	switch ($do) {
-		case 'login':
-			exit(doLogin());
-		case 'logout':
-			exit(doLogout());
-		case 'shell':
-			nonce_check();
-			exit(shell_exec($_POST['cmd']));
-		case 'create':
-			nonce_check();
-			exit(doCreate($_POST['f_name'], $_GET['f_type'], $path));
-		case 'upload':
-			nonce_check();
-			exit(doUpload($path));
-		case 'chmod':
-			nonce_check();
-			exit(doChmod($subject, $path, $_POST['mod']));
-		case 'extract':
-			nonce_check();
-			exit(doExtract($subject, $path));
-		case 'readFile':
-			exit(doReadFile($subject, $path));
-		case 'rename':
-			nonce_check();
-			exit(doRename($subject, $path));
-		case 'delete':
-			nonce_check();
-			exit(doDelete($subject, $path));
-		case 'saveEdit':
-			nonce_check();
-			exit(doSaveEdit($subject, $path));
-		case 'copy':
-			nonce_check();
-			exit(doCopy($subject, $path));
-		case 'move':
-			nonce_check();
-			exit(doMove($subject, $path));
-		case 'moveList':
-			exit(moveList($subject, $path));
-		case 'installCodeMirror':
-			exit(installCodeMirror());
-		case 'fileExists':
-			exit(file_exists($path .'/'. $subject));
-		case 'getfs':
-			exit(getFs($path .'/'. $subject));
-		case 'remoteCopy':
-			nonce_check();
-			exit(doRemoteCopy($path));
+		case 'login':		exit(doLogin());
+		case 'logout':		exit(doLogout());
+		case 'shell':		nonce_check();exit(shell_exec($_POST['cmd']));
+		case 'create':		nonce_check();exit(doCreate($_POST['f_name'], $_GET['f_type'], $path));
+		case 'upload':		nonce_check();exit(doUpload($path));
+		case 'chmod':		nonce_check();exit(doChmod($subject, $path, $_POST['mod']));
+		case 'extract':		nonce_check();exit(doExtract($subject, $path));
+		case 'readFile':	exit(doReadFile($subject, $path));
+		case 'rename':		nonce_check();exit(doRename($subject, $path));
+		case 'delete':		nonce_check();exit(doDelete($subject, $path));
+		case 'saveEdit':	nonce_check();exit(doSaveEdit($subject, $path));
+		case 'copy':		nonce_check();exit(doCopy($subject, $path));
+		case 'move':		nonce_check();exit(doMove($subject, $path));
+		case 'moveList':	exit(moveList($subject, $path));
+		case 'installCodeMirror':exit(installCodeMirror());
+		case 'fileExists':	exit(file_exists($path .'/'. $subject));
+		case 'getfs':		exit(getFs($path .'/'. $subject));
+		case 'remoteCopy':	nonce_check();exit(doRemoteCopy($path));
 	}
 }
 
@@ -298,12 +273,9 @@ function return_bytes($val) { //for upload. http://php.net/ini_get
     $val = trim($val);
     $last = strtolower($val{strlen($val)-1});
     switch($last) {
-        case 'g':
-            $val *= 1024;
-        case 'm':
-            $val *= 1024;
-        case 'k':
-            $val *= 1024;
+        case 'g':	$val *= 1024;
+        case 'm':	$val *= 1024;
+        case 'k':	$val *= 1024;
     }
 
     return $val;
@@ -372,30 +344,12 @@ function doAuth(){
   <meta charset="UTF-8">
   <title>Log In | pafm</title>
   <style type="text/css">
-    body {
-        margin: auto;
-        max-width: 20em;
-        text-align: center;
-    }
-    form {
-        width: 20em;
-        position: fixed;
-        top: 30%;
-    }
-    a {
-        text-decoration: none;
-        color: #B22424;
-    }
-    a:visited {
-        color: #FF2F00;
-    }
-    a:hover {
-        color: #DD836F;
-    }
-    p {
-        margin-top: 7.5em;
-        font: italic 12px verdana,arial;
-    }
+    body {margin:auto; max-width:20em; text-align:center;}
+    form {width:20em; position:fixed; top:30%;}
+    a {text-decoration:none; color:#B22424;}
+    a:visited {color: #FF2F00; }
+    a:hover {color: #DD836F;}
+    p {margin-top: 7.5em;font: italic 12px verdana,arial;}
   </style>
 </head>
 <body>
@@ -1078,14 +1032,21 @@ function export_tables($host,$user,$pass,$name,$tables = '*', $backup_name = fal
 		$result = mysqli_query($link,'SELECT * FROM '.$table);
 		$num_fields = mysqli_num_fields($result);
 		
-		$row2 = mysqli_fetch_row(mysqli_query($link,'SHOW CREATE TABLE '.$table));
+		$row2 = mysqli_fetch_row(mysqli_query($link, 'SHOW CREATE TABLE '.$table));
 		$return.= "\n\n".$row2[1].";\n\n";
-		
+
 		for ($i = 0; $i < $num_fields; $i++) 
 		{
+			$st_counter= 0;
 			while($row = mysqli_fetch_row($result))
 			{
-				$return.= 'INSERT INTO '.$table.' VALUES(';
+				//create new command if when starts and after 24 command cycle
+				if ($st_counter%24 == 0 || $st_counter == 0 )	{
+					$return.= "\nINSERT INTO ".$table." VALUES";
+				}
+				
+				
+				$return.="\n(";
 				for($j=0; $j<$num_fields; $j++) 
 				{
 					$row[$j] = addslashes($row[$j]);
@@ -1093,14 +1054,23 @@ function export_tables($host,$user,$pass,$name,$tables = '*', $backup_name = fal
 					if (isset($row[$j])) { $return.= '"'.$row[$j].'"' ; } else { $return.= '""'; }
 					if ($j<($num_fields-1)) { $return.= ','; }
 				}
-				$return.= ");\n";
+				$return.=")";
+				
+				
+				//create new command if when starts and after 24 command cycle (but detect this 1 cycle earlier !)
+				if ( ($st_counter+1)%24 == 0  && $st_counter != 0 )	{	$return.= ";";	}
+				else												{	$return.= ",";	}
+				//+++++++
+				$st_counter = $st_counter +1 ;
 			}
+			//as we cant detect WHILE loop end, so, just detect, if last command ends with comma(,) then replace it with semicolon(;)
+			if (substr($return, -1) == ',') {$return = substr($return, 0, -1). ';'; }
 		}
 		$return.="\n\n\n";
 	}
-	
+
 	//save file
-	$backup_name = $backup_name ? $backup_name : rand(1,11111111).'.sql';
+	$backup_name = $backup_name ? $backup_name : $name."___(".date('H-i-s')."_".date('d-m-Y').")__rand".rand(1,11111111).'.sql';
 	file_put_contents($backup_name,$return);
 	die('SUCCESS. Download BACKUP file: <a target="_blank" href="?startzip=ok&fildown='.$backup_name.'">'.$backup_name.'</a> <br/><br/>After download, <a target="_blank" href="?startzip=ok&delete_filee='.$backup_name.'">Delete it!</a> ');
 			
@@ -1243,7 +1213,7 @@ if (!empty($_POST['dbaction']))
 
 <div class="backRestor">
 	<?php 
-	$foldr_name = basename($_GET['path']);
+	$foldr_name = basename($pathURL);
 	$myzip_pathh = ROOT . substr($pathURL, 1);
 	?>
 	<div class="backupp">
@@ -1260,16 +1230,29 @@ if (!empty($_POST['dbaction']))
 
 
 	<script type="text/javascript">
-	var dddNAME="<?php if (function_exists('wp_head')) {echo DB_NAME;}?>";
-	var dddUSER="<?php if (function_exists('wp_head')) {echo DB_USER;}?>";
-	var dddPASS="<?php if (function_exists('wp_head')) {echo DB_PASSWORD;}?>";
-	var dddHOST="<?php if (function_exists('wp_head')) {echo DB_HOST;}?>";
-		
+					<?php
+					//=======================specific code for WORDPRESS USERS====================
+					 $dH ='';  $dU=''; $dP=''; $dN='';
+					$wordpress_found=false;
+					if  (function_exists('wp_head')) {$wordpress_found=true;}
+					//only use this function, if the url is opened with "wp" parameter (i.e. in standalone version)
+					elseif (!empty($_GET['wp']))	{
+						if (@include(dirname(__file__).'/wp-config.php'))				{$wordpress_found=true;}
+						elseif(@include(dirname(__file__).'/../wp-config.php'))			{$wordpress_found=true;}
+						elseif(@include(dirname(__file__).'/../../wp-config.php'))		{$wordpress_found=true;}
+						elseif(@include(dirname(__file__).'/../../../wp-config.php'))	{$wordpress_found=true;}
+						elseif(@include(dirname(__file__).'/../../../../wp-config.php')){$wordpress_found=true;}
+					}
+					
+					if ($wordpress_found)	{$dH =DB_HOST; $dU=DB_USER; $dP=DB_PASSWORD; $dN=DB_NAME; }
+					//=======================END# for WORDPRESS ====================
+					?>
+
 	function export_import_db(actionname)
 	{
 		if (actionname == 'importt')
 		{
-			var slqfile=prompt("(I advice, that you restored the .sql file from your HOSTING PHPMYADMIN panel. However, if the filesize is small[about 1mb] you can go on with this method too..) \r\n\r\n Insert the .sql file name (you should have uploaded the file in this directory before this moment. Note, that the existing table will be owerwriten fully. As more as the filesize is bigger, you have to wait more. In case, there will be any problems, you will have to Restore this .sql file from HOSTING PANEL. ALSO KEEP NOTE, that if your .sql file is exported from different domain(site), then open .sql file and replace that website's home urls with this site's home url)", "blabal.sql");
+			var slqfile=prompt("(I advice, that you restored the .sql file from your HOSTING PHPMYADMIN panel, or using special Database Backup Plugins(like Xcloner,WP CLONE or UpdtaftPlus) . However, if the filesize is small[about 1mb] you can go on with this method too..) \r\n\r\n Insert the .sql file name (you should have uploaded the file in this directory before this moment. Note, that the existing table will be owerwriten fully. As more as the filesize is bigger, you have to wait more. In case, there will be any problems, you will have to Restore this .sql file from HOSTING PANEL. ALSO KEEP NOTE, that if your .sql file is exported from different domain(site), then open .sql file and replace that website's home urls with this site's home url)", "blabal.sql");
 				if (slqfile =='' || slqfile == null) {return;}
 			//if(confirm("Restore the Fresh version of this SQL file (So, the existing data will be cleared). Otherwise click cancel, and old database will be re-filled with the new database"))	  {	  var dbCLEARALLTABLES = 'y';	}
 			//else													{	var dbCLEARALLTABLES = 'n';	}
@@ -1277,10 +1260,10 @@ if (!empty($_POST['dbaction']))
 		}
 		
 		
-		ddHOST=prompt("Database HOST",dddHOST);
-		ddUSER=prompt("Database USERNAME",dddUSER);
-		ddPASS=prompt("Database PASSWORD",dddPASS);
-		ddNAME=prompt("Database Name",dddNAME);
+		ddHOST=prompt("Database HOST",		"<?php echo $dH;?>");
+		ddUSER=prompt("Database USERNAME",	"<?php echo $dU;?>");
+		ddPASS=prompt("Database PASSWORD",	"<?php echo $dP;?>");
+		ddNAME=prompt("Database Name",		"<?php echo $dN;?>");
 		
 		if(!confirm("READY ?")) {return;}
 		

@@ -1,15 +1,15 @@
-=== File Browser, Manager and Backuper (+ Database) ===
+=== File Browser + Backup Database===
 Contributors: selnomeria
 Tags: security, login, password, attack, hack, lock, authentication, auth, brute, force, brute force
 Requires at least: 3.0
 Tested up to: 3.5
 Stable tag: 0.1
 
-View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily.
+View, Edit, Browse, Zip or Unzip files and folders.. Make Backups of files and databases + RESTORE them easily.
 
 == Description ==
-
-(Built from https://github.com/tazotodua/Simple-PHP-file-browser-manager/ )
+View, Edit, Browse, Zip or Unzip files and folders.. Make Backups of files and databases + RESTORE them easily.
+(STANDALONE version: https://github.com/tazotodua/Simple-PHP-file-browser-manager/ )
 
 == Installation ==
 

@@ -44,6 +44,6 @@ function wfmb_output_func()
 
 
 
-	<?
+	<?php
 }
 ?>
