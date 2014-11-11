@@ -1,4 +1,4 @@
-=== File Browser + Backup Database===
+=== File Browser & Backup Database===
 Contributors: selnomeria
 Tags: manager,browser,backup,database,mysql,file,ftp
 Requires at least: 3.0
@@ -26,6 +26,3 @@ None.
 
 = 1.1 =
 * First release edition.
-
-== Arbitrary section ==
-None.
