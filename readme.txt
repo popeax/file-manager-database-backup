@@ -1,4 +1,4 @@
-=== File Browser & Backup Database===
+=== File Browser - Backup Database ===
 Contributors: selnomeria
 Tags: manager,browser,backup,database,mysql,file,ftp
 Requires at least: 3.0
@@ -9,7 +9,7 @@ View, Edit, Browse, Zip or Unzip files and folders.. Make Backups of files and d
 
 == Description ==
 View, Edit, Browse, Zip or Unzip files and folders.. Make Backups of files and databases + RESTORE them easily.
-(STANDALONE version: https://github.com/tazotodua/Simple-PHP-file-browser-manager/ )
+(STANDALONE PHP VERSION can be downloaded: https://github.com/tazotodua/Simple-PHP-file-browser-manager/ )
 
 == Installation ==
 
