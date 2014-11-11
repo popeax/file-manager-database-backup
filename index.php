@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: File Browser, Manager and Backuper (+ Database)
-Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily. (Built from STANDALONE version: https://github.com/tazotodua/Simple-PHP-file-browser-manager/ )
+Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily. (STANDALONE PHP VERSI0N is here:  )
 Author: selnomeria, must@fa#
 Version: 1.1
 License: GPLv2
