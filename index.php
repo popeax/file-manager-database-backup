@@ -49,7 +49,7 @@ function wfmb_output_func()
 	<div class="versionn">
 		<div class="version_message">Plugin Update is available. Please, re-install the <a href="http://localhost/wp3/wp-admin/plugins.php" target="_blank">latest version</a>.</div>
 	</div>
-	<?php endif; exit; ?>
+	<?php exit;  endif; ?>
 	
 	<div class="br_window_div">
 		<iframe onLoad="autoResize('ifrm1');" id="ifrm1" src="<?php echo plugins_url('',__FILE__); ?>/filemanager.php?do=login&path=.<?php echo $start_path;?>&temp_pass_file=<?php echo $tmp_filee;?>"  class="fr_window" scrolling="none"  frameborder="0"></iframe>
