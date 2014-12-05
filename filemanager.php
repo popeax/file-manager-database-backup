@@ -1,17 +1,18 @@
 <?php
- 
 
 
 $wp_core= dirname(dirname(dirname(dirname(__FILE__)))).'/wp-load.php';
 if (file_exists($wp_core))
 {
 	require_once($wp_core);
+	$randomnum=get_option('myfmg_random_numb');
+	if (empty($randomnum)) {update_option('myfmg_random_numb',rand(1,111111)*rand(1,1111111)); header("location:" . $_SERVER['REQUES_URI']) or die("cant_redirect_error_7955_inside_plugin");}
 	global $current_user;
 	$user_info= get_userdata( $current_user->ID ); //http://codex.wordpress.org/Function_Reference/get_userdata
 	$lvl=$user_info->user_level;	 
 	if ($lvl == '10' || $lvl == '9' || $lvl == '8')	
 	{
-		$ps			 ='123';
+		$ps			 =$randomnum;
 		$_POST['pwd']=$ps;
 		$_POST['tz_offset']= isset($_SESSION['tz_offset']) ? $_SESSION['tz_offset'] : 0;
 	}
@@ -24,12 +25,13 @@ else {	die('no_access. cant find wp-core.php'); }
 
 
 /*
+	//https://github.com/tazotodua/useful-php-scripts/blob/master/Simple-PHP-file-browser-manager.php
 	@name:                    PHP AJAX File Manager (PAFM)
 	@filename:                pafm.php
 	@version:                 1.8 RC1 (TT modification)
 	@date:                    October 1, 2014
 
-	@author:                  mustafa (selnomeria update)
+	@author:                  mustafa
 	@website:                 http://mus.tafa.us
 	@email:                   mustafa.0x@gmail.com
 
@@ -46,16 +48,16 @@ else {	die('no_access. cant find wp-core.php'); }
  * configuration
  */
 
- 
- 
- 
- 
- 
- 
-
 define('PASSWORD', $ps);
 define('PASSWORD_SALT', 'P5`SU2"6]NALYR}');
 
+//set memory limits
+set_time_limit(3000);
+ini_set('max_execution_time', 3000);
+ini_set('memory_limit','100M');
+ini_set('mysql.connect_timeout', 300);
+ini_set('default_socket_timeout', 300);
+	
 /**
  * Local (absolute or relative) path of folder to manage.
  *
@@ -948,11 +950,6 @@ if (!empty($_GET['startzip']))
 {
 	chdir(dirname(__file__));
 
-	//set memory limits
-	set_time_limit(3000);
-	ini_set('max_execution_time', 3000);
-	ini_set('memory_limit','100M');
-	
 	if (!empty($_GET['pathh']))
 	{
 		
@@ -1002,174 +999,76 @@ if (!empty($_GET['startzip']))
 
 
 // ====================================================== DataBase RESTORE ====================================== //
-function export_tables($host,$user,$pass,$name,$tables = '*', $backup_name = false )
+function EXPORT_TABLES($host,$user,$pass,$name,  $tables=false, $backup_name=false )
 {
-	$link = mysqli_connect($host,$user,$pass,$name);
-	// Check connection
-	if (mysqli_connect_errno())	  {	  echo "Failed to connect to MySQL: " . mysqli_connect_error();	  }
-  
-	mysqli_select_db($link,$name);
-	mysqli_query($link,"SET NAMES 'utf8'");
+	$mysqli = new mysqli($host,$user,$pass,$name); if ($mysqli->connect_errno){ echo "ConnecttError: " . $mysqli->connect_error;} $mysqli->select_db($name); $mysqli->query("SET NAMES 'utf8'");
+	$queryTables = $mysqli->query('SHOW TABLES'); while($row = $queryTables->fetch_row()) { $target_tables[] = $row[0]; }	if($tables !== false) { $target_tables = array_intersect( $target_tables, explode(',',$tables)); }
 	
-	//get all of the tables
-	if($tables == '*')
-	{
-		$tables = array();
-		$result = mysqli_query($link,'SHOW TABLES');
-		while($row = mysqli_fetch_row($result))
-		{
-			$tables[] = $row[0];
-		}
-	}
-	else
-	{
-		$tables = is_array($tables) ? $tables : explode(',',$tables);
-	}
-	$return='';
-	//cycle through
-	foreach($tables as $table)
-	{
-		$result = mysqli_query($link,'SELECT * FROM '.$table);
-		$num_fields = mysqli_num_fields($result);
-		
-		$row2 = mysqli_fetch_row(mysqli_query($link, 'SHOW CREATE TABLE '.$table));
-		$return.= "\n\n".$row2[1].";\n\n";
-
-		for ($i = 0; $i < $num_fields; $i++) 
-		{
+	$content='';    //start cycle
+	foreach($target_tables as $table){
+		$result	= $mysqli->query('SELECT * FROM '.$table); 	$fields_amount=$result->field_count;  $rows_num=$mysqli->affected_rows;
+		$res = $mysqli->query('SHOW CREATE TABLE '.$table);	$TableMLine=$res->fetch_row();
+		$content	.= "\n\n".$TableMLine[1].";\n\n";
+		for ($i = 0; $i < $fields_amount; $i++) {
 			$st_counter= 0;
-			while($row = mysqli_fetch_row($result))
-			{
-				//create new command if when starts and after 24 command cycle
-				if ($st_counter%24 == 0 || $st_counter == 0 )	{
-					$return.= "\nINSERT INTO ".$table." VALUES";
+			while($row = $result->fetch_row())	{
+					//when started (and every after 100 command cycle)
+					if ($st_counter%100 == 0 || $st_counter == 0 )	{$content .= "\nINSERT INTO ".$table." VALUES";}
+				$content .= "\n(";
+				for($j=0; $j<$fields_amount; $j++)  {
+					$row[$j] = str_replace("\n","\\n", addslashes($row[$j]) );
+					if (isset($row[$j])) { $content .= '"'.$row[$j].'"' ; } else { $content .= '""'; }
+					if ($j<($fields_amount-1)) { $content.= ','; }
 				}
-				
-				
-				$return.="\n(";
-				for($j=0; $j<$num_fields; $j++) 
-				{
-					$row[$j] = addslashes($row[$j]);
-					$row[$j] = str_replace("\n","\\n",$row[$j]);
-					if (isset($row[$j])) { $return.= '"'.$row[$j].'"' ; } else { $return.= '""'; }
-					if ($j<($num_fields-1)) { $return.= ','; }
-				}
-				$return.=")";
-				
-				
-				//create new command if when starts and after 24 command cycle (but detect this 1 cycle earlier !)
-				if ( ($st_counter+1)%24 == 0  && $st_counter != 0 )	{	$return.= ";";	}
-				else												{	$return.= ",";	}
-				//+++++++
-				$st_counter = $st_counter +1 ;
+				$content .=")";
+					//every after 100 command cycle [or at last line] ....p.s. but should be inserted 1 cycle eariler
+					if ( (($st_counter+1)%100==0 && $st_counter!=0) || $st_counter+1==$rows_num) {$content .= ";";} else {$content .= ",";}	$st_counter=$st_counter+1;
 			}
-			//as we cant detect WHILE loop end, so, just detect, if last command ends with comma(,) then replace it with semicolon(;)
-			if (substr($return, -1) == ',') {$return = substr($return, 0, -1). ';'; }
-		}
-		$return.="\n\n\n";
+		}$content .="\n\n\n";
 	}
 
 	//save file
-	$backup_name = $backup_name ? $backup_name : $name."___(".date('H-i-s')."_".date('d-m-Y').")__rand".rand(1,11111111).'.sql';
-	file_put_contents($backup_name,$return);
-	die('SUCCESS. Download BACKUP file: <a target="_blank" href="?startzip=ok&fildown='.$backup_name.'">'.$backup_name.'</a> <br/><br/>After download, <a target="_blank" href="?startzip=ok&delete_filee='.$backup_name.'">Delete it!</a> ');
-			
+	$backup_name = $backup_name ? $backup_name : $name."___(".date('H-i-s')."_".date('d-m-Y').")__rand".rand(1,11111111).".sql";
+	header('Content-Type: application/octet-stream');	header("Content-Transfer-Encoding: Binary"); header("Content-disposition: attachment; filename=\"".$backup_name."\"");  echo $content; exit;
 }
 
 
-function import_tables($host,$user,$pass,$dbname,$sql_file,  $clear_or_not=false )
+function IMPORT_TABLES($host,$user,$pass,$dbname,$sql_file)
 {
-	if (!file_exists($sql_file)) {die('Input the SQL filename correctly! <button onclick="window.history.back();">Click Back</button>');}
+	if (!file_exists($sql_file)) {die('Input the SQL filename correctly! <button onclick="window.history.back();">Click Back</button>');} $allLines = file($sql_file);
 	
-	// Connect to MySQL server
-		//$link = mysqli_connect($host,$user,$pass,$name);
-		//mysqli_select_db($link,$mysqli);
-	$mysqli = new mysqli($host, $user, $pass, $dbname);
-	// Check connection
-	if (mysqli_connect_errno())	  {	  echo "Failed to connect to MySQL: " . mysqli_connect_error();	  }
-	
-	if($clear_or_not) 
-	{
+	$mysqli = new mysqli($host, $user, $pass, $dbname); if (mysqli_connect_errno()){echo "Failed to connect to MySQL: " . mysqli_connect_error();} 
 		$zzzzzz = $mysqli->query('SET foreign_key_checks = 0');
-		if ($result = $mysqli->query("SHOW TABLES"))
-		{
-			while($row = $result->fetch_array(MYSQLI_NUM))
-			{
-				$mysqli->query('DROP TABLE IF EXISTS '.$row[0]);
+		preg_match_all("/\nCREATE TABLE(.*?)\`(.*?)\`/si", "\n".file_get_contents($sql_file), $target_tables);
+		foreach ($target_tables[2] as $table) {$mysqli->query('DROP TABLE IF EXISTS '.$table);}
+		$zzzzzz = $mysqli->query('SET foreign_key_checks = 1');
+
+	$mysqli->query("SET NAMES 'utf8'");	$templine = ''; // Temporary variable, used to store current query
+	foreach ($allLines as $line)	{ // Loop through each line
+		if (substr($line, 0, 2) != '--' && $line != '') { // Skip it if it's a comment
+			$templine .= $line; // Add this line to the current segment
+			if (substr(trim($line), -1, 1) == ';') {// If it has a semicolon at the end, it's the end of the query
+				$mysqli->query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . $mysqli->error . '<br /><br />');
+				$templine = '';// Reset temp variable to empty
 			}
 		}
-		$zzzzzz = $mysqli->query('SET foreign_key_checks = 1');
 	}
-
-	$mysqli->query("SET NAMES 'utf8'");
-	// Temporary variable, used to store current query
-	$templine = '';
-	// Read in entire file
-	$lines = file($sql_file);
-	// Loop through each line
-	foreach ($lines as $line)
-	{
-		// Skip it if it's a comment
-		if (substr($line, 0, 2) == '--' || $line == '')
-			continue;
-		// Add this line to the current segment
-		$templine .= $line;
-		// If it has a semicolon at the end, it's the end of the query
-		if (substr(trim($line), -1, 1) == ';')
-		{
-			// Perform the query
-			$mysqli->query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . $mysqli->error . '<br /><br />');
-			// Reset temp variable to empty
-			$templine = '';
-		}
-	}
-	 echo 'Tables imported successfully. <button onclick="window.history.back();">Go Back</button>';
+	echo 'Importing finished. Now, Delete the import file.';
 }
 
 
 
 
-	
-
-if (!empty($_POST['dbaction']))
-{
+if (!empty($_POST['dbaction'])){
 	chdir(dirname(__file__));
-	$dbhost = $_POST['dbHOST'];
-	$dbuser = $_POST['dbUSER'];
-	$dbpass = $_POST['dbPASS'];
-	$dbname = $_POST['dbNAME'];
-	if ($_POST['dbaction'] == 'exportt')
-	{
-		export_tables($dbhost,$dbuser,$dbpass,$dbname);
-	}
-	elseif ($_POST['dbaction'] == 'importt')
-	{
-		$deleteAllTablesBeforeImport = $_POST['dbCLEAR'] == 'y' ? true : false;
-		$sql_file_name = $_POST['sqlfilenamee'];
-		import_tables($dbhost,$dbuser,$dbpass,$dbname, $sql_file_name, $deleteAllTablesBeforeImport);
-	}
-
+	$dbhost = $_POST['dbHOST'];	$dbuser = $_POST['dbUSER'];	$dbpass = $_POST['dbPASS'];	$dbname = $_POST['dbNAME'];
+	if ($_POST['dbaction'] == 'exportt')	{ EXPORT_TABLES($dbhost,$dbuser,$dbpass,$dbname);	}
+	elseif ($_POST['dbaction'] == 'importt'){ IMPORT_TABLES($dbhost,$dbuser,$dbpass,$dbname,$_POST['sqlfilenamee']);	}
 	exit;
 }
 // ====================================================== ###DataBase RESTORE### ====================================== //
 
 //-------------------------###edit ttt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1247,16 +1146,12 @@ if (!empty($_POST['dbaction']))
 					if ($wordpress_found)	{$dH =DB_HOST; $dU=DB_USER; $dP=DB_PASSWORD; $dN=DB_NAME; }
 					//=======================END# for WORDPRESS ====================
 					?>
-
 	function export_import_db(actionname)
 	{
 		if (actionname == 'importt')
 		{
-			var slqfile=prompt("(I advice, that you restored the .sql file from your HOSTING PHPMYADMIN panel, or using special Database Backup Plugins(like Xcloner,WP CLONE or UpdtaftPlus) . However, if the filesize is small[about 1mb] you can go on with this method too..) \r\n\r\n Insert the .sql file name (you should have uploaded the file in this directory before this moment. Note, that the existing table will be owerwriten fully. As more as the filesize is bigger, you have to wait more. In case, there will be any problems, you will have to Restore this .sql file from HOSTING PANEL. ALSO KEEP NOTE, that if your .sql file is exported from different domain(site), then open .sql file and replace that website's home urls with this site's home url)", "blabal.sql");
+			var slqfile=prompt("(I advice, that you restored the .sql file from your HOSTING PHPMYADMIN panel. However, if the filesize is small[about 1mb] you can go on with this method too..) \r\n\r\n Insert the .sql file name (you should have uploaded the file in this directory before this moment. Note, that the existing table will be owerwriten fully. As more as the filesize is bigger, you have to wait more. In case, there will be any problems, you will have to Restore this .sql file from HOSTING PANEL. ALSO KEEP NOTE, that if your .sql file is exported from different domain(site), then open .sql file and replace that website's home urls with this site's home url)", "blabal.sql");
 				if (slqfile =='' || slqfile == null) {return;}
-			//if(confirm("Restore the Fresh version of this SQL file (So, the existing data will be cleared). Otherwise click cancel, and old database will be re-filled with the new database"))	  {	  var dbCLEARALLTABLES = 'y';	}
-			//else													{	var dbCLEARALLTABLES = 'n';	}
-			var dbCLEARALLTABLES = 'y';
 		}
 		
 		
@@ -1273,7 +1168,7 @@ if (!empty($_POST['dbaction']))
 		}
 		else if (actionname == 'importt')
 		{
-			postm({dbaction:actionname,dbHOST:ddHOST,dbUSER:ddUSER,dbPASS:ddPASS,dbNAME:ddNAME,dbCLEAR:dbCLEARALLTABLES,sqlfilenamee: "<?php echo $myzip_pathh;?>/" + slqfile },'', '', '');
+			postm({dbaction:actionname,dbHOST:ddHOST,dbUSER:ddUSER,dbPASS:ddPASS,dbNAME:ddNAME,sqlfilenamee: "<?php echo $myzip_pathh;?>/" + slqfile },'', '', '');
 		}
 	}	
 	
@@ -1311,22 +1206,13 @@ if (!empty($_POST['dbaction']))
 <div id="dirList">
 	<ul id="info">
 	  <li>
-		<span id="file">name</span>
-		<span class="extension">extension</span>
-		<span class="filemtime">last modified</span>
-		<span class="mode">mode</span>
-		<span class="fs">size</span>
-		<span id="fileop">file operations</span>
+		<span id="file">name</span><span class="extension">extension</span><span class="filemtime">last modified</span><span class="mode">mode</span><span class="fs">size</span><span id="fileop">file operations</span>
 	  </li>
 	</ul>
 
-	<ul>
-	<?php getDirs($path);?>
-	</ul>
+	<ul><?php getDirs($path);?>	</ul>
 
-	<ul>
-	<?php getFiles($path);?>
-	</ul>
+	<ul><?php getFiles($path);?></ul>
 </div>
 
 <div id="add" class="b">
