@@ -9,7 +9,9 @@ View, Edit, Browser, Zip or Unzip files and folders.. Make Backups of files and 
 
 == Description ==
 View, Edit,  Zip or Unzip, Manager of files and folders.. Make Backups of files and databases + RESTORE them easily.
-(STANDALONE PHP VERSI0N can be downloaded: https://github.com/tazotodua/useful-php-scripts/)
+(STANDALONE PHP VERSI0N exists: https://github.com/tazotodua/useful-php-scripts/)
+Use at your own risk!
+
 
 == Installation ==
 
