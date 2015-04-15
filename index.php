@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: File Browser, Manager and Backuper (+ Database)
-Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily. (STANDALONE PHP VERSI0N here: https://github.com/tazotodua/Simple-PHP-file-browser-manager/ ). Use at your own risk.
+Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily. (STANDALONE PHP VERSI0N IS AVAILABLE TOO). Use at your own risk. (OTHER MUST-HAVE PLUGINS : http://codesphpjs.blogspot.com/2014/10/must-have-wordpress-plugins.html )
 Author: selnomeria, must@fa#
 Version: 1.1
 License: GPLv2 free
@@ -68,7 +68,7 @@ function wfmb_output_func()
 	</script>
 
 
-
+	<br/>(Standalone PHP version is here: https://github.com/tazotodua/useful-php-scripts/ )
 	<?php
 }
 ?>
