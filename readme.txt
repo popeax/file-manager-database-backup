@@ -1,9 +1,9 @@
-=== File Manager - Backup Database ===
+=== File Browser, Manager, Backup (+ Database) ===
 Contributors: selnomeria
 Tags: manager,browser,backup,database,mysql,file,ftp
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.1
+Stable tag: 1.2
 
 View, Edit, Browser, Zip or Unzip files and folders.. Make Backups of files and databases + RESTORE them easily.
 
@@ -27,6 +27,7 @@ None.
 None.
 
 == Changelog ==
-
+= 1.2 =
+* many fixes and improvements.
 = 1.1 =
 * First release edition.
