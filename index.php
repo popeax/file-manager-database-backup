@@ -5,7 +5,7 @@ Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backup
 Author: selnomeria, must@fa#
 Version: 1.2
 License: GPLv2 free
-*/
+*/ if ( ! defined( 'ABSPATH' ) ) exit; //Exit if accessed directly
 
 define('domainURL__FBMB',				(((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']!=='off') || $_SERVER['SERVER_PORT']==443) ? 'https://':'http://' ).$_SERVER['HTTP_HOST']);
 define('homeURL__FBMB',					home_url());
@@ -22,6 +22,10 @@ define('PLUGIN_DIR__FBMB',				plugin_dir_path(__FILE__) );
 
 		
 //==================================================== ACTIVATION commands ===============================		
+//redirect after activation
+add_action( 'activated_plugin', 'activat_redirect__WFMB' ); function activat_redirect__WFMB( $plugin ) { 
+    if( $plugin == plugin_basename( __FILE__ ) ) {  exit(wp_redirect( admin_url( 'admin.php?page=wfmb-pagee')) );  }
+}		
 //ACTIVATION HOOK
 register_activation_hook( __FILE__, 'activation__WFMB' );function activation__WFMB() { 
 	//UpgrateHtaccess__WFMB();
@@ -90,7 +94,7 @@ add_action('admin_footer','wfmb_addsubmenulinktarget');function wfmb_addsubmenul
 	echo '<script type="text/javascript">var wfmb_link= document.getElementsByClassName("toplevel_page_wfmb-page")[1]; if (wfmb_link){wfmb_link.setAttribute("target","_blank");wfmb_link.setAttribute("href","'.wfmb_filenamLink.'");}</script>';
 }
 	
-add_action('admin_menu', 'wfmb_regist'); function wfmb_regist() {add_menu_page('File Manager', 'File Manager', 'administrator','wfmb-page', 'wfmb_output_func','dashicons-media-spreadsheet'); } function wfmb_output_func(){
+add_action('admin_menu', 'wfmb_regist'); function wfmb_regist() {add_menu_page('File Manager', 'File Manager', 'administrator','wfmb-pagee', 'wfmb_output_func','dashicons-media-spreadsheet'); } function wfmb_output_func(){
 	?>
 	
 	<?php if (!check_updates__FBMB()) { ?>
