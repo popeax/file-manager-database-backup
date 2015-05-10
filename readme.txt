@@ -9,8 +9,10 @@ View, Edit, Browser, Zip or Unzip files and folders.. Make Backups of files and 
 
 == Description ==
 View, Edit,  Zip or Unzip, Manager of files and folders.. Make Backups of files and databases + RESTORE them easily.
-(STANDALONE PHP VERSI0N IS AVAILABLE TOO). Use at your own risk. (OTHER MUST-HAVE PLUGINS : http://codesphpjs.blogspot.com/2014/10/must-have-wordpress-plugins.html )
+(STANDALONE PHP VERSI0N IS AVAILABLE TOO). Use at your own risk. 
 
+
+>  (P.S. Note! This is a <a href="http://codesphpjs.blogspot.com/2014/10/nsp-non-slowing-plugins-for-wordpress.html" target="_blank">Non-Slowing</a> Plugin.  See OTHER MUST-HAVE PLUGINS FOR EVERYONE: http://bitly.com/MWPLUGINS  )
 
 === STANDALONE VERSION===
 https://github.com/tazotodua/useful-php-scripts/
