@@ -3,7 +3,7 @@
 Plugin Name: File Browser, Manager and Backup (+ Database)
 Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily. (STANDALONE PHP VERSI0N IS AVAILABLE TOO). Use at your own risk. (OTHER MUST-HAVE PLUGINS : http://codesphpjs.blogspot.com/2014/10/must-have-wordpress-plugins.html )
 Author: selnomeria, must@fa#
-Version: 1.2
+Version: 1.21
 License: GPLv2 free
 */ if ( ! defined( 'ABSPATH' ) ) exit; //Exit if accessed directly
 
@@ -20,11 +20,11 @@ define('PLUGIN_DIR__FBMB',				plugin_dir_path(__FILE__) );
 
 
 
-		
+define('plugin_pageslug__FBMB',		'wfmb-pagee');		
 //==================================================== ACTIVATION commands ===============================		
 //redirect after activation
 add_action( 'activated_plugin', 'activat_redirect__WFMB' ); function activat_redirect__WFMB( $plugin ) { 
-    if( $plugin == plugin_basename( __FILE__ ) ) {  exit(wp_redirect( admin_url( 'admin.php?page=wfmb-pagee')) );  }
+    if( $plugin == plugin_basename( __FILE__ ) ) { exit(wp_redirect( admin_url( 'admin.php?page='.plugin_pageslug__FBMB.'&firsttime')) );  }
 }		
 //ACTIVATION HOOK
 register_activation_hook( __FILE__, 'activation__WFMB' );function activation__WFMB() { 
@@ -91,15 +91,15 @@ add_action('init','redirect__WFMB');function redirect__WFMB(){
 
 
 add_action('admin_footer','wfmb_addsubmenulinktarget');function wfmb_addsubmenulinktarget(){
-	echo '<script type="text/javascript">var wfmb_link= document.getElementsByClassName("toplevel_page_wfmb-page")[1]; if (wfmb_link){wfmb_link.setAttribute("target","_blank");wfmb_link.setAttribute("href","'.wfmb_filenamLink.'");}</script>';
+	echo '<script type="text/javascript">var wfmb_link= document.getElementById("toplevel_page_'.plugin_pageslug__FBMB.'").getElementsByClassName("menu-top")[0]; if (wfmb_link){wfmb_link.setAttribute("target","_blank");wfmb_link.setAttribute("href","'.wfmb_filenamLink.'");}</script>';
 }
 	
-add_action('admin_menu', 'wfmb_regist'); function wfmb_regist() {add_menu_page('File Manager', 'File Manager', 'administrator','wfmb-pagee', 'wfmb_output_func','dashicons-media-spreadsheet'); } function wfmb_output_func(){
+add_action('admin_menu', 'wfmb_regist'); function wfmb_regist() {add_menu_page('File Manager', 'File Manager', 'administrator', plugin_pageslug__FBMB, 'wfmb_output_func','dashicons-media-spreadsheet'); } function wfmb_output_func(){
 	?>
-	
-	<?php if (!check_updates__FBMB()) { ?>
-			<script type="text/javascript"> window.location = "<?php echo wfmb_filenamLink;?>";	</script>
-	<?php }; ?>
+	<?php
+		if (isset($_GET['firsttime'])) { ?> <script type="text/javascript">alert("You can enter FILE MANAGER page from the left sidebar menu"); </script> <?php } 
+		elseif (!check_updates__FBMB()) { ?><script type="text/javascript"> window.location = "<?php echo wfmb_filenamLink;?>";	</script>	<?php } 
+	?>
 		<!--
 		<style>	.br_window_div{width: 100%;height:100%;} iframe.fr_window{width: 100%;height:100%;} .version_message {background-color: #F00;float: left;padding: 10px;margin: 10px;font-size: 2em;}	</style>
 		
