@@ -3,7 +3,7 @@ Contributors: selnomeria
 Tags: manager,browser,backup,database,mysql,file,ftp
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.2
+Stable tag: 1.22
 
 View, Edit, Browser, Zip or Unzip files and folders.. Make Backups of files and databases + RESTORE them easily.
 

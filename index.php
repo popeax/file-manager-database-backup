@@ -3,7 +3,7 @@
 Plugin Name: File Browser, Manager and Backup (+ Database)
 Description: View, Edit, Browser , Zip and Unzip files and folders.. Make Backups of files and databases + RESTORE them easily. (STANDALONE PHP VERSI0N IS AVAILABLE TOO). Use at your own risk. (OTHER MUST-HAVE PLUGINS : http://codesphpjs.blogspot.com/2014/10/must-have-wordpress-plugins.html )
 Author: selnomeria, must@fa#
-Version: 1.21
+Version: 1.22
 License: GPLv2 free
 */ if ( ! defined( 'ABSPATH' ) ) exit; //Exit if accessed directly
 
